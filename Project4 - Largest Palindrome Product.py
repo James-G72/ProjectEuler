@@ -1,9 +1,4 @@
-def is_palindrome(num:int) -> bool:
-    string_num = str(num)
-    for i in range(int(len(string_num)/2)):
-        if string_num[i] != string_num[len(string_num)-(i+1)]:
-            return False
-    return True
+import GeneralFunctions as gf
 
 
 def main():
@@ -11,11 +6,10 @@ def main():
     for num1 in range(100, 1000):
         for num2 in range(100,1000):
             product = num1*num2
-            if is_palindrome(product):
+            if gf.is_palindrome(product):
                 if product>palindromes:
                     palindromes = product
     return palindromes
-
 
 
 if __name__ == "__main__":

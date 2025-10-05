@@ -12,4 +12,4 @@ def main(n):
 if __name__ == "__main__":
     n = 1000
     answer = main(n)
-    print(f"Product is {answer}")
+    print(f"Product that satisfies all conditions is {answer}")

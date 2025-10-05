@@ -6,8 +6,9 @@ def main():
         square_sum += i**2
     square_total_sum = sum_nums**2
     difference = square_total_sum-square_sum
+
     return difference
 
 if __name__ == "__main__":
     difference = main()
-    print(f"The square differerce of the first 100 numbers is {difference}")
+    print(f"The square difference of the first 100 numbers is {difference}")

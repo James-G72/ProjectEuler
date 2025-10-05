@@ -1,23 +1,12 @@
-def get_factors(x):
-    temp = x
-    check = 2
-    factors = [0]
-    while temp > max(factors):
-        if temp%check == 0:
-            temp = temp / check
-            factors.append(check)
-        check += 1
-    factors.remove(0)
-
-    return factors
+import GeneralFunctions as gf
 
 
 def main(n):
-    all_factors = get_factors(n)
+    all_factors = gf.hacky_big_factors(n)
     prime_factors = []
     print(all_factors)
     for factor in all_factors:
-        if len(get_factors(factor)) == 1:
+        if len(gf.hacky_big_factors(factor)) == 1:
             prime_factors.append(factor)
     return max(prime_factors)
 

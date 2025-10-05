@@ -1,6 +1,4 @@
-
-def next_fib(prev, prev_prev):
-    return prev+prev_prev
+import GeneralFunctions as gf
 
 def main(n):
     prev = 2
@@ -8,7 +6,7 @@ def main(n):
     count = 2
     fib = 3
     while fib <= n:
-        fib = next_fib(prev, prev_prev)
+        fib = gf.next_fib(prev, prev_prev)
         if not fib%2:
             count += fib
         prev_prev = prev
