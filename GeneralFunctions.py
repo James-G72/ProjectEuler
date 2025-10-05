@@ -18,6 +18,45 @@ def prime_factors(integer):
     return factors
 
 
+def all_factors(num):
+    """
+    Brute for finding all factors
+    :param num: number to find factors of
+    :return: List of all factors
+    """
+    check = 1
+    factors = []
+    while check < num/2+1:
+        if num%check == 0:
+            factors.append(check)
+        check += 1
+    factors.append(num)
+
+    return factors
+
+
+def all_factors_efficient(num):
+    """
+    Taken from:
+    https://www.rookieslab.com/posts/most-efficient-way-to-find-all-factors-of-a-number-python-cpp#efficient-python-implementation-to-find-factors-of-a-number
+    :param num: Number to find factors of
+    :return: list of all factors
+    """
+    # We will store all factors in `result`
+    result = []
+    i = 1
+    # This will loop from 1 to int(sqrt(x))
+    while i * i <= num:
+        # Check if i divides x without leaving a remainder
+        if num % i == 0:
+            result.append(i)
+            # Handle the case explained in the 4th
+            if num // i != i:  # In Python, // operator performs integer/floored division
+                result.append(num // i)
+        i += 1
+    # Return the list of factors of x
+    return result
+
 def next_fib(n_minus_1, n_minus_2):
     """
     Returns the next Fibonacci number given the previous two.
@@ -61,3 +100,12 @@ def is_palindrome(num:int) -> bool:
             return False
 
     return True
+
+
+def triangle_number(size):
+    """
+    Return the triangle number of depth size
+    :param size: depth of triangle
+    :return: Triangle number
+    """
+    return sum(range(1, size+1))
