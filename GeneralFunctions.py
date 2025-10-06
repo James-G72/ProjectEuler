@@ -109,3 +109,35 @@ def triangle_number(size):
     :return: Triangle number
     """
     return sum(range(1, size+1))
+
+
+def factorial(n):
+    out = 1
+    for num in range(2, n + 1):
+        out *= num
+    return out
+
+
+def permutation_count(input_string, repeats, perm_string_length=None):
+    """
+    Return the number of possible permutations of a given string.
+    :param input_string: String containing full set of options
+    :param repeats: Bool for treating the string characters as unique. If True then identical characters are counted as repeats.
+    :return: Number of possible permutations
+    """
+    if perm_string_length is None:
+        perm_string_length = len(input_string)
+    n = len(input_string)
+    if repeats:
+        uniques = list(set(input_string))
+        counts = []
+        for unique in uniques:
+            counts.append(sum([x == unique for x in input_string]))
+
+        denom = 1
+        for count in counts:
+            denom *= factorial(count)
+
+        return int(factorial(n)/(denom))
+    else:
+        return int(factorial(n) / factorial(n - perm_string_length))
