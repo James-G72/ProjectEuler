@@ -2,7 +2,7 @@
 
 import os
 import argparse
-import datetime as dt
+import timeit
 import collections
 
 
@@ -40,16 +40,15 @@ def run_files(projects, time_funcs):
     print(f"")
     for p_num, mod in projects.items():
         print(f"\n --- Testing Project {p_num} --- ")
-        # TODO fix timings, currently seems a bit random
-        s_t = dt.datetime.now()
+        s_t = timeit.default_timer()
         out = mod.main(mod.INPUT)
-        e_t = dt.datetime.now()
+        e_t = timeit.default_timer()
         t_t = (e_t - s_t)
         # TODO add docstrings to all main functions to print what the test is about
         if out == mod.ANSWER:
-            print("    Correct answer of {} returned in {:.5f} seconds".format(out, t_t.microseconds/1000000))
+            print("    Correct answer of {} returned in {:.5f} seconds".format(out, t_t))
         else:
-            print("    Incorrect answer of {} returned in {:.5f} seconds".format(out, t_t.microseconds/1000000))
+            print("    Incorrect answer of {} returned in {:.5f} seconds".format(out, t_t))
             print(f"    Correct Answer is {mod.ANSWER}.")
 
 
