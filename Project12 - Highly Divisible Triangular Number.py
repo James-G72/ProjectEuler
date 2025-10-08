@@ -1,5 +1,7 @@
 import GeneralFunctions as gf
 
+ANSWER = 76576500
+INPUT = 500
 
 def main(n):
     factors = []
@@ -14,6 +16,5 @@ def main(n):
 
 
 if __name__ == "__main__":
-    n = 500
-    answer = main(n)
-    print(f"First triangle number with over {n} factors is {answer}")
+    answer = main(INPUT)
+    print(f"First triangle number with over {INPUT} factors is {answer}")

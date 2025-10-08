@@ -1,3 +1,6 @@
+ANSWER = 837799
+INPUT = 1000000
+
 
 def return_collatz(num):
     if num%2 == 0:
@@ -22,6 +25,5 @@ def main(n):
 
 
 if __name__ == "__main__":
-    n = 1000000
-    answer = main(n)
-    print(f"The starting value with the largest chain is {answer}")
+    answer = main(INPUT)
+    print(f"The starting value (below {INPUT}) with the largest chain is {answer}")

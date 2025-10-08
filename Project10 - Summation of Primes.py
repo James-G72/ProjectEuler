@@ -1,5 +1,8 @@
 import GeneralFunctions as gf
 
+ANSWER = 142913828922
+INPUT = 2000000
+
 
 def main(n):
     prime_sum = 5
@@ -11,6 +14,5 @@ def main(n):
 
 
 if __name__ == "__main__":
-    n = 2000000
-    answer = main(n)
-    print(f"Sum of all primes below {n} is {answer}")
+    answer = main(INPUT)
+    print(f"Sum of all primes below {INPUT} is {answer}")

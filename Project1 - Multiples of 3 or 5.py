@@ -1,4 +1,5 @@
-
+ANSWER = 233168
+INPUT = 1000
 
 def main(n):
     count = 0
@@ -10,6 +11,5 @@ def main(n):
 
 
 if __name__ == "__main__":
-    n = 1000
-    answer = main(n)
-    print(f"Sum of multiples of 3 or 5 under 1000 is {answer}")
+    answer = main(INPUT)
+    print(f"Sum of multiples of 3 or 5 under {INPUT} is {answer}")

@@ -1,5 +1,7 @@
 import GeneralFunctions as gf
 
+ANSWER = 104743
+INPUT = 10001
 
 def main(n):
     found = 1
@@ -12,6 +14,5 @@ def main(n):
     return number
 
 if __name__ == "__main__":
-    n = 10001
-    answer = main(n)
-    print(f"Prime number {n} is {answer}")
+    answer = main(INPUT)
+    print(f"Prime number {INPUT} is {answer}")

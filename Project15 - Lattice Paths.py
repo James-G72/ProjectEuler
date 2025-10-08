@@ -10,12 +10,14 @@ Tricky thing is that there are repeats allowed as objects are not distinct.
 """
 from GeneralFunctions import permutation_count
 
+ANSWER = 137846528820
+INPUT = 20
+
 
 def main(n):
     return permutation_count("A"*20+"B"*20, repeats=True, perm_string_length=2*n)
 
 
 if __name__ == "__main__":
-    n = 20
-    answer = main(n)
-    print(f"The number of different routes for a {n}x{n} grid is {answer}")
+    answer = main(INPUT)
+    print(f"The number of different routes for a {INPUT}x{INPUT} grid is {answer}")

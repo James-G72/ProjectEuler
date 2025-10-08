@@ -1,5 +1,7 @@
-import GeneralFunctions as gf
+import math
 
+ANSWER = 70600674
+INPUT = 4
 GRID = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 \
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 \
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65 \
@@ -20,10 +22,12 @@ GRID = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 \
 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16 \
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 \
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
+N_L = None
 
 
-def unpack_grid(size):
+def unpack_grid():
     full_list = GRID.split(" ")
+    size = int(math.sqrt(len(full_list)))
     out_list = []
     for row in range(0, size):
         start_pos = size*row
@@ -93,26 +97,18 @@ def search_possible(row, col, g_s, n, n_l):
         if valid:
             # Can we move between rows and columns
             row_effect, col_effect = row_col_effects(dir_check)
-            print(f"row{row}, col{col}, num{dir_check}, row_e:{row_effect}, col_e{col_effect}")
-            if row == 17 and col == 0:
-                stop = True
             prod_list.append(product_from_list(n_l, row, col, row_effect, col_effect, n))
 
     return prod_list
 
 
-def main(n_l, g_s, n):
-    """
-    Perform search
-    :param n_l: Nested list of lists
-    :param g_s: Size of the grid, assumed square
-    :param n: Number of numbers to sum
-    :return: Largest number found
-    """
+def main(n):
+    N_L = unpack_grid()
     biggest = 0
+    g_s = len(N_L[0])
     for row in range(0, g_s):
         for col in range(0, g_s):
-            possible_prods = search_possible(row, col, g_s, n, n_l)
+            possible_prods = search_possible(row, col, g_s, n, N_L)
             if max(possible_prods) > biggest:
                 biggest = max(possible_prods)
 
@@ -120,8 +116,5 @@ def main(n_l, g_s, n):
 
 
 if __name__ == "__main__":
-    grid_size = 20
-    nested_lists = unpack_grid(grid_size)
-    adjacent = 4
-    answer = main(nested_lists, grid_size, adjacent)
-    print(f"Largest adjacent product of {adjacent} values is {answer}")
+    answer = main(INPUT)
+    print(f"Largest adjacent product of {INPUT} values is {answer}")

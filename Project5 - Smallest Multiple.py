@@ -1,6 +1,9 @@
 import copy
 import GeneralFunctions as gf
 
+ANSWER = 232792560
+INPUT = 20
+
 def check_covered(list1, list2):
     temp_list = copy.deepcopy(list2)
     needed = []
@@ -24,6 +27,5 @@ def main(n):
     return out
 
 if __name__ == "__main__":
-    n = 20
-    answer = main(n)
-    print(f"The smallest number that has 1-{n} as factors is {answer}")
+    answer = main(INPUT)
+    print(f"The smallest number that has 1 to {INPUT} as factors is {answer}")

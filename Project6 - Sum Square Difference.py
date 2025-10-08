@@ -1,7 +1,10 @@
-def main():
+ANSWER = 25164150
+INPUT = 100
+
+def main(n):
     sum_nums = 0
     square_sum = 0
-    for i in range(101):
+    for i in range(n+1):
         sum_nums += i
         square_sum += i**2
     square_total_sum = sum_nums**2
@@ -10,5 +13,5 @@ def main():
     return difference
 
 if __name__ == "__main__":
-    difference = main()
-    print(f"The square difference of the first 100 numbers is {difference}")
+    difference = main(INPUT)
+    print(f"The square difference of the first {INPUT} numbers is {difference}")

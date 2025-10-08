@@ -1,5 +1,8 @@
 import GeneralFunctions as gf
 
+ANSWER = 4613732
+INPUT = 4000000
+
 def main(n):
     prev = 2
     prev_prev = 1
@@ -14,6 +17,5 @@ def main(n):
     return count
 
 if __name__ == "__main__":
-    n = 4000000
-    answer = main(n)
-    print(f"Sum of even fibonacci numbers under {n} is {answer}")
+    answer = main(INPUT)
+    print(f"Sum of even fibonacci numbers under {INPUT} is {answer}")

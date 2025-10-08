@@ -1,5 +1,5 @@
-import GeneralFunctions as gf
-
+ANSWER = 5537376230
+INPUT = None
 BIG_NUMBERS = [37107287533902102798797998220837590246510135740250,
 46376937677490009712648124896970078050417018260538,
 74324986199524741059474233309513058123726617309629,
@@ -101,14 +101,15 @@ BIG_NUMBERS = [37107287533902102798797998220837590246510135740250,
 20849603980134001723930671666823555245252804609722,
 53503534226472524250874054075591789781264330331690]
 
-def main():
+
+def main(n):
     total_sum = 0
     for num in BIG_NUMBERS:
         total_sum += num
 
-    return total_sum
+    return str(total_sum)[:10]
 
 
 if __name__ == "__main__":
-    answer = main()
-    print(f"The sum of all the numbers is {str(answer)[:10]}")
+    answer = main(INPUT)
+    print(f"The first 10 digits from the sum of all the numbers is {answer}")

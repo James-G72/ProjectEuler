@@ -64,7 +64,7 @@ def next_fib(n_minus_1, n_minus_2):
     :param n_minus_2: The number before last
     :return: The next number in a Fibonacci sequence.
     """
-    assert n_minus_1 <= n_minus_2, f"n_minus_1 ({n_minus_1}) must be smaller than or equal to n_minus_2 ({n_minus_2})."
+    assert n_minus_2 <= n_minus_1, f"n_minus_2 ({n_minus_2}) must be smaller than or equal to n_minus_1 ({n_minus_1})."
     return n_minus_1+n_minus_2
 
 

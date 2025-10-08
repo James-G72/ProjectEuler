@@ -1,4 +1,5 @@
-
+ANSWER = 58152277333216000
+INPUT = 704000
 
 def main(n):
     count = 0
@@ -8,8 +9,6 @@ def main(n):
     return count
 
 
-
 if __name__ == "__main__":
-    n = 704000
-    answer = main(n)
-    print(f"Sum of odd numbers in the first {n} square number is {answer}")
+    answer = main(INPUT)
+    print(f"Sum of odd numbers in the first {INPUT} square number is {answer}")
