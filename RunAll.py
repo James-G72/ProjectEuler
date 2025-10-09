@@ -20,8 +20,8 @@ def import_all_mains(list):
     """
     unsorted = {}
     for idx, file in enumerate(list):
-        if file[0:7] == "Project":
-            p_num = int(file.split(" ")[0].split("t")[1])
+        if file[0:7] == "Problem":
+            p_num = int(file.split(" ")[0].split("m")[1])
             _ = __import__(file[:-3])
             unsorted[p_num] = _
 
@@ -39,7 +39,7 @@ def run_files(projects, time_funcs):
     """
     print(f"")
     for p_num, mod in projects.items():
-        print(f"\n --- Testing Project {p_num} --- ")
+        print(f"\n --- Testing Problem {p_num} --- ")
         s_t = timeit.default_timer()
         out = mod.main(mod.INPUT)
         e_t = timeit.default_timer()
