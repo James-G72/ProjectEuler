@@ -57,12 +57,10 @@ def all_factors_efficient(num):
     :param num: Number to find factors of
     :return: list of all factors
     """
-    # We will store all factors in `result`
     result = []
     i = 1
     # This will loop from 1 to int(sqrt(x))
     while i * i <= num:
-        # Check if i divides num without leaving a remainder
         if num % i == 0:
             result.append(i)
             # Handle the case explained in the 4th
