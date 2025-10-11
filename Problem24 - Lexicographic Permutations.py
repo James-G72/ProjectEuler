@@ -1,5 +1,3 @@
-import itertools
-
 import GeneralFunctions as gf
 
 ANSWER = 2783915460

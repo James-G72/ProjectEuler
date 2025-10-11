@@ -13,35 +13,38 @@ def long_div_for_remainder(top, bottom, dec_limit=20):
     :return: Fraction in decimal form.
     """
     assert top <= bottom, "Only works for fractions."
-    decimals = -1
     dividend = top
     divisor = bottom
     number = ""
     decimal_cache = OrderedDict()
-    recurr_out = 0
-    while decimals < dec_limit:
+    recur_out = 0
+    counter = 0
+    while counter < dec_limit+1:
         quotient, remainder = divmod(dividend, divisor)
+        # Check if we have come to a half
         if quotient == 0 and remainder == 0:
             break
+        # Check for carrying
         if remainder < divisor:
             dividend = remainder * 10
         else:
             dividend = remainder
+        # Check if the current state has been seen before
         if (dividend,divisor) in decimal_cache.keys():
-            start_idx = decimal_cache[(dividend,divisor)]
-            recurr_out = number.split(".")[-1][start_idx:]
+            # Subtracting 1 for the index offset in counter
+            start_idx = decimal_cache[(dividend,divisor)] - 1
+            recur_out = number.split(".")[-1][start_idx:]
             break
         elif "." in number:
-            decimal_cache[(dividend,divisor)] = decimals
-        if decimals == -1 and quotient == 0:
+            decimal_cache[(dividend,divisor)] = counter
+        # Add the quotient to the number
+        if counter == 0:
             number += "0."
-            decimals = 0
         else:
             number += str(quotient)
-            if decimals >= 0:
-                decimals += 1
+        counter += 1
 
-    return float(number), int(recurr_out)
+    return float(number), int(recur_out)
 
 
 def main(n):
@@ -57,4 +60,4 @@ def main(n):
 
 if __name__ == "__main__":
     answer = main(INPUT)
-    print(f"The longest recurring sequence for 1/n where n < {INPUT} is {answer} digits")
+    print(f"The longest recurring sequence for 1/n where n < {INPUT} is {answer}")

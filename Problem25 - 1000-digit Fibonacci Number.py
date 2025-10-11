@@ -21,4 +21,4 @@ def main(n):
 
 if __name__ == "__main__":
     answer = main(INPUT)
-    print(f"The {INPUT}th permutation of the digits 0,1,2,3,4,5,6,7,8,9 is {answer}")
+    print(f"The first fibonacci number to have more than {INPUT} digits is {answer}")
