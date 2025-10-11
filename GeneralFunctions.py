@@ -24,7 +24,6 @@ def check_prime(integer):
     :param integer: Value to be assessed.
     :return: True or False depending on primeness
     """
-    assert isinstance(integer, int), f"Can only return prime factors of an integer not {type(integer)}."
     i = 2
     while i * i <= integer:
         if integer % i:
