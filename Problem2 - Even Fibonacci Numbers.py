@@ -4,6 +4,7 @@ ANSWER = 4613732
 INPUT = 4000000
 
 def main(n):
+    """Sum all even Fibonacci numbers below a given value."""
     prev = 2
     prev_prev = 1
     count = 2

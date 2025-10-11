@@ -5,6 +5,7 @@ INPUT = 600851475143
 
 
 def main(n):
+    """Calculate the largest prime factor for a given number."""
     all_factors = gf.hacky_big_factors(n)
     prime_factors = []
     for factor in all_factors:

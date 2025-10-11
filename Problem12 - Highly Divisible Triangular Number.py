@@ -4,6 +4,7 @@ ANSWER = 76576500
 INPUT = 500
 
 def main(n):
+    """A triangle number is the sum of all numbers up to n. Find the first triangle number that has over 500 divisors."""
     factors = []
     tri_number = 1
     counter = 2

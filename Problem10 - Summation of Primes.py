@@ -5,6 +5,7 @@ INPUT = 2000000
 
 
 def main(n):
+    """Sum all of the prime number below a given value."""
     prime_sum = 5
     for check in range(4, n):
         if len(gf.prime_factors(check)) == 1:

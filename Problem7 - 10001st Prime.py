@@ -4,6 +4,7 @@ ANSWER = 104743
 INPUT = 10001
 
 def main(n):
+    """Find the nth prime number."""
     found = 1
     number = 1
     while found != n:

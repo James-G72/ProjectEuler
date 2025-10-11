@@ -2,6 +2,7 @@ ANSWER = 233168
 INPUT = 1000
 
 def main(n):
+    """Calculate the number of multiples of 3 and 5 below a given number."""
     count = 0
     for num in range(1, n):
         if num % 3 == 0  or num % 5 == 0:

@@ -4,6 +4,7 @@ ANSWER = 906609
 INPUT = 3
 
 def main(n):
+    """Find the largest number whose digits are a palindrome that can be made by multiplying two three-digit numbers together"""
     palindromes = 0
     for num1 in range(10**(n-1), 10**n):
         for num2 in range(10**(n-1),10**n):

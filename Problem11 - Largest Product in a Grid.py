@@ -103,6 +103,7 @@ def search_possible(row, col, g_s, n, n_l):
 
 
 def main(n):
+    """For a given grid of numbers, find the greatest product of any n numbers in a line. Diagonal is allowed."""
     N_L = unpack_grid()
     biggest = 0
     g_s = len(N_L[0])

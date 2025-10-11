@@ -15,6 +15,7 @@ INPUT = 20
 
 
 def main(n):
+    """Find the number of valid orthogonal paths through a grid. Solved as a permutations problem."""
     return permutation_count("A"*20+"B"*20, repeats=True, perm_string_length=2*n)
 
 

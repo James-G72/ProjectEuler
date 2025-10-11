@@ -16,6 +16,7 @@ def check_covered(list1, list2):
 
 
 def main(n):
+    """Find the smallest number that can be divided evenly by all the numbers from 1 to n."""
     full_list = []
     for x in range(1, n+1):
         full_list.extend(check_covered(gf.prime_factors(x), full_list))

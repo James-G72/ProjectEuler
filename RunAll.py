@@ -5,6 +5,8 @@ import argparse
 import timeit
 import collections
 
+ROOT_ADDRESS = "https://projecteuler.net/problem="
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -40,11 +42,12 @@ def run_files(projects, time_funcs):
     print(f"")
     for p_num, mod in projects.items():
         print(f"\n --- Testing Problem {p_num} --- ")
+        print(f"    {ROOT_ADDRESS+str(p_num)}")
+        print(f"    Functionality: {mod.main.__doc__}")
         s_t = timeit.default_timer()
         out = mod.main(mod.INPUT)
         e_t = timeit.default_timer()
         t_t = (e_t - s_t)
-        # TODO add docstrings to all main functions to print what the test is about
         if out == mod.ANSWER:
             print("    Correct answer of {} returned in {:.5f} seconds".format(out, t_t))
         else:

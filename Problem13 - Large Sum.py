@@ -103,6 +103,7 @@ BIG_NUMBERS = [37107287533902102798797998220837590246510135740250,
 
 
 def main(n):
+    """Return the first 10 digits of all numbers in a given list summed."""
     total_sum = 0
     for num in BIG_NUMBERS:
         total_sum += num

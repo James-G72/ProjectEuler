@@ -10,6 +10,7 @@ def return_collatz(num):
 
 
 def main(n):
+    """Find the number with the longest Collatz sequence under a given number."""
     cache = {1:0}
     for start in range(2, n+1):
         num = start

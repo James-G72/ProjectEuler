@@ -23,6 +23,7 @@ BIG_NUMBER = '73167176531330624919225119674426574742355349194934\
 
 
 def main(n):
+    """For a given large number, find the largest product of n consecutive digits."""
     biggest = 0
     for i in range(len(BIG_NUMBER)-n):
         number = BIG_NUMBER[i:i+n]

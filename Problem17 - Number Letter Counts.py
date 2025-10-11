@@ -24,6 +24,7 @@ def number_as_word(n):
 
 
 def main(n, print_ans=False):
+    """Count the number of letters required to print all numbers under a given value. Spaces not included"""
     total_letters = 0
     for num in range (1, n+1):
         total_letters += len(number_as_word(num))
