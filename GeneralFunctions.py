@@ -18,6 +18,22 @@ def prime_factors(integer):
     return factors
 
 
+def check_prime(integer):
+    """
+    Returns True or false for whether a value is a prime number.
+    :param integer: Value to be assessed.
+    :return: True or False depending on primeness
+    """
+    assert isinstance(integer, int), f"Can only return prime factors of an integer not {type(integer)}."
+    i = 2
+    while i * i <= integer:
+        if integer % i:
+            i += 1
+        else:
+            return False
+    return True
+
+
 def all_factors(num):
     """
     Brute for finding all factors

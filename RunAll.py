@@ -39,9 +39,10 @@ def run_files(projects, time_funcs):
     :param time_funcs: If True, report the time to run.
     :return: None
     """
-    print(f"")
+    print("")
+    times = {}
     for p_num, mod in projects.items():
-        print(f"\n --- Testing Problem {p_num} --- ")
+        print(f"\n- Testing Problem {p_num}:")
         print(f"    {ROOT_ADDRESS+str(p_num)}")
         print(f"    Functionality: {mod.main.__doc__}")
         s_t = timeit.default_timer()
@@ -53,6 +54,13 @@ def run_files(projects, time_funcs):
         else:
             print("    Incorrect answer of {} returned in {:.5f} seconds".format(out, t_t))
             print(f"    Correct Answer is {mod.ANSWER}.")
+        times[p_num] = t_t
+
+    sorted_times = dict(sorted(times.items(), key=lambda item: item[1], reverse=True))
+    print(f"Listing Problems by time taken to return:")
+    for idx, (p_num, time) in enumerate(sorted_times.items()):
+        print("    {} - Problem {} : {:.5f} seconds".format(idx+1, p_num, time))
+
 
 
 if __name__ == "__main__":
