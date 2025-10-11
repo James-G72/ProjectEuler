@@ -1,3 +1,15 @@
+"""
+Was stuck with a 20-second solution so looked on the thread at how people had approached it.
+Key things I had missed:
+ - Not only does b have to be positive for the n=0 case, it must also be prime.
+ - When n=1, p = 1 + a + b. All primes are odd except 2. Given the above line that b must be prime,
+       then the only case that a can be odd, is when b is 2. All other cases a must be even, and
+       therefore not prime, unless it also equals two.
+To take advantage of the first thing, we can initialise the prime generator to have all primes up to 1000
+and then iterate b through that range.
+To take advantage of the second finding we want to make a the inner loop and only check odd values that are odd
+unless b is 2.
+"""
 import GeneralFunctions as gf
 import itertools
 
@@ -30,14 +42,14 @@ def main(n):
     max_run = 0
     best = (None, None)
     prime_checker = CheckPrimeWithGen()
-    for a in range(-999, 1000):
-        # We can start b from only positive as n = 0 will never be positive if b isn't
-        for b in range(0, 1001):
+    # Generate all primes up to 1000
+    prime_checker.check_prime(1000)
+    # Drop the last value as prime_checker will have generated the next prime larger than 1000
+    for b in prime_checker.primes[:-1]:
+        for a in range(-999, 1000, 2 if b !=2 else 1):
             count = 0
             for n in itertools.count():
                 result = n**2 + a * n + b
-                if result <= 0:
-                    break
                 if not prime_checker.check_prime(result):
                     break
                 count += 1
