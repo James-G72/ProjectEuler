@@ -7,21 +7,9 @@ ANSWER = 76576500
 INPUT = 500
 
 
-def prime_generator_with_cache(_primes=[]):
-    yield from _primes
-    start = 2 if not _primes else _primes[-1]+1
-    for candidate in itertools.count(start):
-        for prime in _primes:
-            if candidate % prime == 0:
-                break
-        else:
-            yield candidate
-            _primes.append(candidate)
-
-
 def all_prime_factors(num):
     factors = collections.defaultdict(lambda: 0)
-    for prime in prime_generator_with_cache():
+    for prime in gf.prime_generator_with_cache():
         while num % prime == 0:
             factors[prime] += 1
             num /= prime

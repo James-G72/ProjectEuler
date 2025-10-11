@@ -1,3 +1,5 @@
+import itertools
+
 def prime_factors(integer):
     """
     Returns the full list of the prime factors for the given integer.
@@ -31,6 +33,24 @@ def check_prime(integer):
         else:
             return False
     return True
+
+
+def prime_generator_with_cache(_primes=[]):
+    """
+    This is a generator object that caches prime numbers as it goes. It is designed to be used in a situation
+    where you are looking for all primes up to a certain value, and don't want to start again each time.
+    :param _primes: Only required for initiating the primes list. Should not be used.
+    :return: Next prime
+    """
+    yield from _primes
+    start = 2 if not _primes else _primes[-1]+1
+    for candidate in itertools.count(start):
+        for prime in _primes:
+            if candidate % prime == 0:
+                break
+        else:
+            yield candidate
+            _primes.append(candidate)
 
 
 def all_factors(num):
