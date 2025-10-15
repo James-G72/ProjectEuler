@@ -1,11 +1,15 @@
 """Thought I would try and do this in a weird way to see whats possible"""
 
 import os
+import sys
 import argparse
 import timeit
 import collections
 
 ROOT_ADDRESS = "https://projecteuler.net/problem="
+FILE_PATH = "/".join(os.path.abspath(__file__).split("/")[:-1])
+PROBLEM_PATH = os.path.join(FILE_PATH, "Problems")
+sys.path.insert(0, PROBLEM_PATH)
 
 
 def parse_args():
@@ -65,8 +69,7 @@ def run_files(projects, time_funcs):
 
 if __name__ == "__main__":
     args = parse_args()
-    all_files = os.listdir(os.getcwd())
-    projects = import_all_mains(all_files)
+    projects = import_all_mains(os.listdir(PROBLEM_PATH))
 
     run_files(projects, time_funcs=args.time)
 

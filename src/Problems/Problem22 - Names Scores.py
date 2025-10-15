@@ -1,7 +1,7 @@
 import GeneralFunctions as gf
 
 ANSWER = 871198282
-INPUT = r"/Users/jamesgower2/Documents/PycharmProjects/ProjectEuler/Test Data/0022_names.txt"
+INPUT = r"/Users/jamesgower2/Documents/PycharmProjects/ProjectEuler/src/Test Data/0022_names.txt"
 
 
 def txt_to_list(path):
